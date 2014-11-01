@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101203216) do
+ActiveRecord::Schema.define(version: 20141101210130) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -57,6 +57,10 @@ ActiveRecord::Schema.define(version: 20141101203216) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "uuid"
+    t.string   "address"
+    t.string   "city"
+    t.string   "country"
+    t.string   "postal"
   end
 
 end
