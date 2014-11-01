@@ -1,13 +1,26 @@
 <h1>Hey</h1>
-<%= form_tag charges_path do %>
- <article>
-   <label class="amount">
-     <span>Amount: $5.00</span>
-   </label>
-</article>
-
- <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-   data-key="<%= @stripe_key %>"
-   data-description="A month's subscription"
-   data-amount="500"></script>
+<%= form_tag charges_path, id:'chargeForm' do %>
+ 
+ <script src="https://checkout.stripe.com/checkout.js"></script>
+   	<%= hidden_field_tag 'stripeToken' %>
+    <%= hidden_field_tag 'stripeEmail' %>  
+    <button id="btn-buy" type="button" class="btn btn-success btn-lg">I want this!</button>
+    <script>
+    var handler = StripeCheckout.configure({
+      key: '<%= @stripe_key %>',
+      token: function(token, arg) {
+        document.getElementById("stripeToken").value = token.id;
+        document.getElementById("stripeEmail").value = token.email;
+        document.getElementById("chargeForm").submit();
+      }
+    });
+     document.getElementById('btn-buy').addEventListener('click', function(e) {
+      handler.open({
+        name: 'Edible Energy',
+        description: 'Edible Energy Health Package($9.99)',
+        amount: 999
+    });
+    e.preventDefault();
+   })
+  </script>
 <% end %>
