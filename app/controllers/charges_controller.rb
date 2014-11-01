@@ -21,7 +21,7 @@ class ChargesController < ApplicationController
 
 	  purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], 
     amount: params[:amount], description: charge.description, currency: charge.currency,
-    customer_id: customer.id, product_id: 1, uuid: SecureRandom.uuid)
+    customer_id: customer.id, product_id: 1, uuid: SecureRandom.uuid, address: params[:address], city: params[:city], postal: params[:postal], country: params[:country])
 
     redirect_to purchase
 

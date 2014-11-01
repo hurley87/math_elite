@@ -2,20 +2,20 @@
 <%= form_tag charges_path, id:'chargeForm' do %>
   <div class="field">
     <%= label_tag :address  %>
-    <%= text_field_tag :address %>
+    <%= text_field_tag 'address' %>
   </div>
   <div class="field">
     <%= label_tag :city  %>
-    <%= text_field_tag :city %>
+    <%= text_field_tag 'city' %>
   </div>
   <p>need just us or canada option here</p>
   <div class="field">
     <%= label_tag :country  %>
-    <%= text_field_tag :country %>
+    <%= text_field_tag 'country' %>
   </div>
   <div class="field">
     <%= label_tag :postal %>
-    <%= text_field_tag :postal %>
+    <%= text_field_tag 'postal' %>
   </div>
    	<%= hidden_field_tag 'stripeToken' %>
     <%= hidden_field_tag 'stripeEmail' %>  
