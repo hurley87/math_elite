@@ -9,19 +9,14 @@ class ChargesController < ApplicationController
 
 	  customer = Stripe::Customer.create(
 	    :email => params[:stripeEmail],
-	    :card  => params[:stripeToken]
-	  )
-
-	  charge = Stripe::Charge.create(
-	    :customer    => customer.id,
-	    :amount      => @amount,
-	    :description => 'Edible Energy Customer',
-	    :currency    => 'cad'
+	    :card  => params[:stripeToken],
+	    :plan => 'SOCKS'
 	  )
 
 	  purchase = Purchase.create(email: params[:stripeEmail], card: params[:stripeToken], 
-    amount: params[:amount], description: charge.description, currency: charge.currency,
-    customer_id: customer.id, product_id: 1, uuid: SecureRandom.uuid, address: params[:address], city: params[:city], postal: params[:postal], country: params[:country])
+    amount: params[:amount], description: 'You get one pair of cool socks a month!', currency: 'cad'
+    customer_id: customer.id, product_id: 1, uuid: SecureRandom.uuid, 
+    address: params[:address], city: params[:city], postal: params[:postal], country: params[:country])
 
     redirect_to purchase
 
