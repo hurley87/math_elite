@@ -1,7 +1,7 @@
 class PurchaseMailer < ActionMailer::Base
 layout 'purchase_mailer'
 
- default from: "Edible Energy Health Package <commerce@edibiblenergy.com>"
+ default from: "SOCKS"
 
  def purchase_receipt purchase
 	 @purchase = purchase
