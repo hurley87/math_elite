@@ -42,3 +42,5 @@ gem 'pry'
 
 gem 'sorcery'
 
+gem "font-awesome-rails"
+

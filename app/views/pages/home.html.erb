@@ -2,7 +2,7 @@
 <%= form_tag charges_path, id:'chargeForm' do %>
    	<%= hidden_field_tag 'stripeToken' %>
     <%= hidden_field_tag 'stripeEmail' %>  
-    <button id="btn-buy" type="button" class="btn btn-success btn-lg">I want this!</button>
+    <button id="btn-buy" type="button" class="btn btn-success btn-lg">I want this! <i class="fa fa-camera-retro fa-large"></i></button>
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script>
     var handler = StripeCheckout.configure({
