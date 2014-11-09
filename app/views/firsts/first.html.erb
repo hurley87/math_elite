@@ -1,23 +1,10 @@
 
-<!-- Large modal -->
-<button id='start' type="button" class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">Large modal</button>
+<%= render 'layouts/modals'  %>
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-     <h1> Hey whats up?</h1>
-     <button id='end'>End</button>
-    </div>
-  </div>
-</div>
-
-<script type="text/javascript">
-  
-  $(document).ready(function() {
-
-    $('#start').hide().trigger('click');
-    $('#end').on('click', function() {
-        $('.modal').modal('hide')
-    });
-  });
-</script>
+<style type="text/css">
+	.clock {
+		color: white;
+		margin: auto;
+		width: 50%;
+	}
+</style>

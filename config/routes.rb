@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :charges
   resources :purchases, only: [:show]
 
-  get 'first' => 'firsts#first', :as => 'first'
+  get 'level-1' => 'firsts#first', :as => 'first'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
