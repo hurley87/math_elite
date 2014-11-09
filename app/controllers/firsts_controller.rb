@@ -3,6 +3,7 @@ class FirstsController < ApplicationController
 	def first
 		@user = current_user
 		@score = First.new
+		@update = Update.new
 	end
 
 	private

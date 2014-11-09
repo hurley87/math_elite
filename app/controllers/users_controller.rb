@@ -64,7 +64,7 @@ class UsersController < InheritedResources::Base
 
 
     def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation)
+      params.require(:user).permit(:email, :password, :number, :password_confirmation)
     end
 end
 

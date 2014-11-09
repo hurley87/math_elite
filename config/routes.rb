@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'updates/create'
+
+  get 'updates/destroy'
+
   resources :user_sessions
   resources :users
 
@@ -12,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :charges
   resources :purchases, only: [:show]
+  resources :updates
 
   get 'level-1' => 'firsts#first', :as => 'first'
 

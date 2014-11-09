@@ -43,3 +43,5 @@ gem 'sorcery'
 
 gem "font-awesome-rails"
 
+gem 'twilio-ruby'
+
