@@ -4,9 +4,9 @@ class UpdatesController < ApplicationController
   	@update = Update.new
   	@user = current_user
    	@update.user_id = @user.id
-   	
+   	@update.body = params[:update][:body]
     if @update.save
-      @update.send_text_message(@user) 
+      @update.send_text_message(@user, @update) 
       redirect_to root_path
     else
       render :new

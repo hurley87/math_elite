@@ -24,13 +24,21 @@
 			<p>Your time is <span id='your-time'></span></p>
 			<button id='play-again'>play again</button>
 			<button id='next-level'>Next Level</button>
-      <%= form_for @update do |f|  %>
+      <%= form_for @update, remote: true do |f|  %>
+        <%= f.hidden_field :body  %>
         <%= f.submit  %>
       <% end %>
-			<button id='text-parents'>Next Level</button>
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  
+  $(document).ready(function() {
+    $('#update_body').val('hellllooooooo')
+  });
+  
+</script>
 
 <div class="clock"></div>
 
