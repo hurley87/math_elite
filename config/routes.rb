@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'seconds/second'
+
   get 'updates/create'
 
   get 'updates/destroy'
@@ -17,9 +19,10 @@ Rails.application.routes.draw do
   resources :charges
   resources :purchases, only: [:show]
   resources :updates
-
+  resources :firsts, only: [:new, :create]
+  
   get 'level-1' => 'firsts#first', :as => 'first'
-
+  get 'level-2' => 'seconds#second', :as => 'second'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
