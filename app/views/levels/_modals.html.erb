@@ -19,11 +19,12 @@
      <h1>The end on level 1</h1>
 			<p>Your score is <span id='your-time'></span></p>
 			<button id='play-again'>play again</button>
-			<p><%= link_to 'Level 2', second_path  %></p>
+			
       <%= form_for @update, remote: true do |f|  %>
         <%= f.hidden_field :body  %>
         <%= f.submit  %>
       <% end %>
+      
       <%= form_for @score, remote: true do |f|  %>
         <%= f.hidden_field :score %>
         <%= f.submit "submit time"  %>
@@ -33,46 +34,34 @@
 </div>
 
 <script type="text/javascript">
-
   $(document).ready(function() {
-
   $('#update_body').val('Jonny finished first level');
-
   $('#play-again').on('click', function() {
       location.reload();
   });  
-
   var clock = $('.clock').FlipClock(30, {
     countdown: true,
     clockFace: 'MinuteCounter'
-
   });
   clock.stop();
-
   $('#start-level').on('click', function() {
     $('.modal').modal('hide');
     clock.start();
     setTimeout(function() { stopRound() }, 30000);
   });
-
   function stopRound() {
     clock.stop()
     var seconds = clock.getTime().getSeconds();
     var min = clock.getTime().getMinutes();
     $('#first_score').val(seconds);
-
     $('#end').trigger('click');
     $('#your-time').text(seconds);
     console.log(seconds);
     console.log(min);
   } 
-
   $('#done').on('click', function() {
       stopRound();
   });
 });
-
 </script>
-
-
 

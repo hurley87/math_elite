@@ -45,3 +45,5 @@ gem "font-awesome-rails"
 
 gem 'twilio-ruby'
 
+gem 'instagram'
+

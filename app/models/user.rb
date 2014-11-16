@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   
   has_many :updates
-  has_many :firsts
-  has_many :seconds
+  
+  has_many :submits, :through => :levels
   
 end
