@@ -4,7 +4,12 @@
 <div id='play-modal' class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
-     <h1>Hey whats up? This is level 1</h1>
+     <h1>Hey whats up? This is level <%= @level.id  %></h1>
+     <p>Name: <%= @level.name %></p>
+     <p>Description: <%= @level.description %></p>
+     <br>
+     <p><%= link_to "Next Level", level_path(@level.id + 1)  %></p>
+     <p><%= link_to "Previous Level", level_path(@level.id - 1)  %></p>
      <button id='start-level'>Play</button>
     </div>
   </div>
@@ -26,7 +31,8 @@
       <% end %>
       
       <%= form_for @score, remote: true do |f|  %>
-        <%= f.hidden_field :score %>
+       <%= f.hidden_field :score %>
+       <p id='level-id' data-level='<%= @level.id %>'><%= f.hidden_field :level_id  %></p>
         <%= f.submit "submit time"  %>
       <% end %>
     </div>
@@ -34,7 +40,12 @@
 </div>
 
 <script type="text/javascript">
-  $(document).ready(function() {
+$(document).ready(function() {
+  $('#play-modal').hide().trigger('click');
+  $('#end-modal').hide();
+  $('#begin').hide().trigger('click');
+  $('#end').hide();
+
   $('#update_body').val('Jonny finished first level');
   $('#play-again').on('click', function() {
       location.reload();
@@ -53,11 +64,13 @@
     clock.stop()
     var seconds = clock.getTime().getSeconds();
     var min = clock.getTime().getMinutes();
-    $('#first_score').val(seconds);
+    var level = $('#level-id').data('level');
+    
+    $('#submit_score').val(seconds);
+    $('#submit_level_id').val(level);
+
     $('#end').trigger('click');
     $('#your-time').text(seconds);
-    console.log(seconds);
-    console.log(min);
   } 
   $('#done').on('click', function() {
       stopRound();

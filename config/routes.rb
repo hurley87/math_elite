@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'submit/new'
+
+  get 'submit/create'
+
   root 'pages#home'
 
   resources :user_sessions

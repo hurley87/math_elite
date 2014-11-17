@@ -1,28 +1,28 @@
 <h1>new level</h1>
 
 <div class='container'>
-<%= form_for @level  do |f| %>
-<div class='form-field'>
-<%= f.label :name  %>
-<%= f.text_field :name  %>
-</div>
-<div class='form-field'>
-<%= f.label :description  %>
-<%= f.text_field :description  %>
-</div>
-<div class='form-field'>
+	<%= form_for @level  do |f| %>
+	<div class='form-field'>
+	<%= f.label :name  %>
+	<%= f.text_field :name  %>
+	</div>
+	<div class='form-field'>
+	<%= f.label :description  %>
+	<%= f.text_field :description  %>
+	</div>
+	<div class='form-field'>
 
-<%= f.label :youtube %>
-<%= f.text_field :youtube  %>
-</div>
-<div class='form-field'>
-<%= f.label :length  %>
-<%= f.text_field :length  %>
-</div>
-<div class='form-field'>
-<%= f.label :total %>
-<%= f.number_field :total  %>
-<%= f.submit  %>
-</div>
-<% end %>
+	<%= f.label :youtube %>
+	<%= f.text_field :youtube  %>
+	</div>
+	<div class='form-field'>
+	<%= f.label :length  %>
+	<%= f.text_field :length  %>
+	</div>
+	<div class='form-field'>
+	<%= f.label :total %>
+	<%= f.number_field :total  %>
+	<%= f.submit  %>
+	</div>
+	<% end %>
 </div>
