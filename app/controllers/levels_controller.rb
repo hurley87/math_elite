@@ -14,7 +14,6 @@ class LevelsController < ApplicationController
 
   def create
   	@level = Level.new(level_params)
-
   	if @level.save
   		redirect_to root_path
   	else

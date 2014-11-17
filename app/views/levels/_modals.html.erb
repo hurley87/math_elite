@@ -49,8 +49,10 @@ $(document).ready(function() {
   $('#update_body').val('Jonny finished first level');
   $('#play-again').on('click', function() {
       location.reload();
-  });  
-  var clock = $('.clock').FlipClock(30, {
+  });
+  var round_time = parseInt($('.clock').data('time')); 
+
+  var clock = $('.clock').FlipClock(round_time, {
     countdown: true,
     clockFace: 'MinuteCounter'
   });
@@ -65,7 +67,7 @@ $(document).ready(function() {
     var seconds = clock.getTime().getSeconds();
     var min = clock.getTime().getMinutes();
     var level = $('#level-id').data('level');
-    
+
     $('#submit_score').val(seconds);
     $('#submit_level_id').val(level);
 
